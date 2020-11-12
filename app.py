@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import session_items as session
+import requests
+import os
 
 app = Flask(__name__)
 app.config.from_object('flask_config.Config')
@@ -11,7 +13,20 @@ def index():
 
 @app.route('/create', methods=['POST'])
 def create():
-    session.add_item(request.form['title'])
+    url = "https://api.trello.com/1/cards"
+
+    query = {
+        'key': os.environ["TRELLO_KEY"],
+        'token': os.environ["TRELLO_TOKEN"],
+        'idList': os.environ["BOARD_ID"],
+        'name': request.form['title']
+    }
+
+    response = requests.request(
+        "POST",
+        url,
+        params=query
+    )
     return index()
 
 @app.route('/update', methods=['POST'])
