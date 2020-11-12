@@ -12,6 +12,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+###VSCODE STUFF###
+.vscode/
+Exercise-1.code-workspace
+
+
 # C extensions
 *.so
 
