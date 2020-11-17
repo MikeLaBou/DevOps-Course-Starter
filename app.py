@@ -10,7 +10,22 @@ app.config.from_object('flask_config.Config')
 def index():
     return render_template('index.html', 
         items=sorted(session.get_items(), key=lambda item: item['status'], reverse=True))
-
+    cards = getData(f'1/boards/{BOARD_ID}/cards')
+    lists = getData(f'1/boards/{BOARD_ID}/lists')
+    statuses = []
+    for list in lists:
+        status = {}
+        status['id'] = list['id']
+        status['title'] = list['name']
+        statuses.append(status)
+    items = []
+    for card in cards:
+        item = {}
+        item['id'] = card['id']
+        item['title'] = card['name']
+        item['status'] = [status['title'] for status in statuses if card['idList'] == status['id']][0]
+        items.append(item)
+    return render_template('index.html', items=items, statuses=statuses)
 @app.route('/create', methods=['POST'])
 def create():
     url = "https://api.trello.com/1/cards"
@@ -27,7 +42,7 @@ def create():
         url,
         params=query
     )
-    return index()
+    return return redirect(url_for('index'))
 
 @app.route('/update', methods=['POST'])
 def update():
@@ -35,12 +50,12 @@ def update():
         item = session.get_item(id)
         item['status'] = 'Complete'
         session.save_item(item)
-    return index()
+    return return redirect(url_for('index'))
 
 @app.route('/remove/<id>')
 def remove(id):
     session.remove_item(id)
-    return index()
+    return return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run()
