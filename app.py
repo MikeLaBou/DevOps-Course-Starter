@@ -1,61 +1,43 @@
-from flask import Flask, render_template, request, redirect, url_for
-import session_items as session
-import requests
+from flask import Flask, render_template, redirect, url_for, request
 import os
+import trello_items as trello
+
 
 app = Flask(__name__)
-app.config.from_object('flask_config.Config')
+app.config.from_object(Config)
+
 
 @app.route('/')
 def index():
-    return render_template('index.html', 
-        items=sorted(session.get_items(), key=lambda item: item['status'], reverse=True))
-    cards = getData(f'1/boards/{BOARD_ID}/cards')
-    lists = getData(f'1/boards/{BOARD_ID}/lists')
-    statuses = []
-    for list in lists:
-        status = {}
-        status['id'] = list['id']
-        status['title'] = list['name']
-        statuses.append(status)
-    items = []
-    for card in cards:
-        item = {}
-        item['id'] = card['id']
-        item['title'] = card['name']
-        item['status'] = [status['title'] for status in statuses if card['idList'] == status['id']][0]
-        items.append(item)
-    return render_template('index.html', items=items, statuses=statuses)
-@app.route('/create', methods=['POST'])
-def create():
-    url = "https://api.trello.com/1/cards"
+    items = trello.get_items()
+    return render_template('index.html', items = items)
 
-    query = {
-        'key': os.environ["TRELLO_KEY"],
-        'token': os.environ["TRELLO_TOKEN"],
-        'idList': os.environ["BOARD_ID"],
-        'name': request.form['title']
-    }
 
-    response = requests.request(
-        "POST",
-        url,
-        params=query
-    )
+@app.route('/items/new', methods=['POST'])
+def add_item():
+    name = request.form['name']
+    trello.add_item(name)
     return redirect(url_for('index'))
 
-@app.route('/update', methods=['POST'])
-def update():
-    for id in request.form:
-        item = session.get_item(id)
-        item['status'] = 'Complete'
-        session.save_item(item)
+
+@app.route('/items/<id>/start')
+def start_item(id):
+    trello.start_item(id)
+    return redirect(url_for('index')) 
+
+
+@app.route('/items/<id>/complete')
+def complete_item(id):
+    trello.complete_item(id)
     return redirect(url_for('index'))
 
-@app.route('/remove/<id>')
-def remove(id):
-    session.remove_item(id)
-    return redirect(url_for('index'))
+
+@app.route('/items/<id>/uncomplete')
+def uncomplete_item(id):
+    trello.uncomplete_item(id)
+    return redirect(url_for('index')) 
+
 
 if __name__ == '__main__':
     app.run()
+
