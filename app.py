@@ -42,7 +42,7 @@ def create():
         url,
         params=query
     )
-    return return redirect(url_for('index'))
+    return redirect(url_for('index'))
 
 @app.route('/update', methods=['POST'])
 def update():
@@ -50,12 +50,12 @@ def update():
         item = session.get_item(id)
         item['status'] = 'Complete'
         session.save_item(item)
-    return return redirect(url_for('index'))
+    return redirect(url_for('index'))
 
 @app.route('/remove/<id>')
 def remove(id):
     session.remove_item(id)
-    return return redirect(url_for('index'))
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run()
