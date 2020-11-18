@@ -1,10 +1,11 @@
 from todo_item import Item
 import requests
+import os
 from flask import current_app as app
 
 
 def get_auth_params():
-    return { 'key': app.config['TRELLO_API_KEY'], 'token': app.config['TRELLO_API_SECRET'] }
+    return { 'key': os.environ['TRELLO_API_KEY'], 'token': os.environ['TRELLO_API_TOKEN'] }
 
 def build_url(endpoint):
     return app.config['TRELLO_BASE_URL'] + endpoint
@@ -22,7 +23,7 @@ def get_boards():
         list: The list of Trello boards.
     """
     params = build_params()
-    url = build_url('/members/me/boards')
+    url = build_url('/members/5fad6b6206b1cc0b93559819/boards')
 
     response = requests.get(url, params = params)
     boards = response.json()
