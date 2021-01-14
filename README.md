@@ -5,6 +5,8 @@
 The project uses a virtual environment to isolate package dependencies. To create the virtual environment and install required packages, run the following from a bash shell terminal:
 
 ### On macOS and Linux
+### Make sure you unset the proxy ###
+
 ```bash
 $ source setup.sh
 ```
