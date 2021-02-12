@@ -8,7 +8,7 @@ def get_auth_params():
     return { 'key': os.environ['TRELLO_API_KEY'], 'token': os.environ['TRELLO_API_TOKEN'] }
 
 def build_url(endpoint):
-    return app.config['TRELLO_BASE_URL'] + endpoint
+    return os.environ['TRELLO_BASE_URL'] + endpoint
 
 def build_params(params = {}):
     full_params = get_auth_params()
@@ -50,7 +50,7 @@ def get_lists():
         list: The list of Trello lists.
     """
     params = build_params({ 'cards': 'open' }) # Only return cards that have not been archived
-    url = build_url('/boards/%s/lists' % app.config['TRELLO_BOARD_ID'])
+    url = build_url('/boards/%s/lists' % os.environ['TRELLO_BOARD_ID'])
 
     response = requests.get(url, params = params)
     lists = response.json()

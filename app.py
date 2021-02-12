@@ -1,10 +1,10 @@
 from flask import Flask, render_template, redirect, url_for, request
-import trello_items as trello
-from flask_config import Config
 
+from ToDo import trello_items as trello
+#from todo_app.flask_config import Config
 
 app = Flask(__name__)
-app.config.from_object(Config)
+#app.config.from_object(Config)
 
 
 @app.route('/')
@@ -40,4 +40,3 @@ def uncomplete_item(id):
 
 if __name__ == '__main__':
     app.run()
-
