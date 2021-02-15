@@ -1,5 +1,3 @@
-import os
-
 class Item:
 
     def __init__(self, id, name, status = 'To Do'):
@@ -8,7 +6,7 @@ class Item:
         self.status = status
 
     @classmethod
-    def from_trello_card(cls, card, list):
+    def fromTrelloCard(cls, card, list):
         return cls(card['id'], card['name'], list['name'])
 
     def reset(self):

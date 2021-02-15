@@ -1,14 +1,13 @@
 from todo_item import Item
 import requests
-import os
 from flask import current_app as app
 
 
 def get_auth_params():
-    return { 'key': os.environ['TRELLO_API_KEY'], 'token': os.environ['TRELLO_API_TOKEN'] }
+    return { 'key': app.config['TRELLO_API_KEY'], 'token': app.config['TRELLO_API_SECRET'] }
 
-#def build_url(endpoint):
-#    return os.environ['TRELLO_BASE_URL'] + endpoint
+def build_url(endpoint):
+    return app.config['TRELLO_BASE_URL'] + endpoint
 
 def build_params(params = {}):
     full_params = get_auth_params()
@@ -19,11 +18,12 @@ def build_params(params = {}):
 def get_boards():
     """
     Fetches all boards from Trello.
+
     Returns:
         list: The list of Trello boards.
     """
     params = build_params()
-    url = build_url('/members/5fad6b6206b1cc0b93559819/boards')
+    url = build_url('/members/me/boards/')
 
     response = requests.get(url, params = params)
     boards = response.json()
@@ -34,8 +34,10 @@ def get_boards():
 def get_board(name):
     """
     Fetches the board from Trello with the specified name.
+
     Args:
         name (str): The name of the list.
+
     Returns:
         board: The board, or None if no board matches the specified name.
     """
@@ -46,11 +48,12 @@ def get_board(name):
 def get_lists():
     """
     Fetches all lists for the default Trello board.
+
     Returns:
         list: The list of Trello lists.
     """
     params = build_params({ 'cards': 'open' }) # Only return cards that have not been archived
-    url = build_url('/boards/%s/lists' % os.environ['TRELLO_BOARD_ID'])
+    url = build_url('/boards/%s/lists' % app.config['TRELLO_BOARD_ID'])
 
     response = requests.get(url, params = params)
     lists = response.json()
@@ -61,8 +64,10 @@ def get_lists():
 def get_list(name):
     """
     Fetches the list from Trello with the specified name.
+
     Args:
         name (str): The name of the list.
+
     Returns:
         list: The list and its items (cards), or None if no list matches the specified name.
     """
@@ -73,6 +78,7 @@ def get_list(name):
 def get_items():
     """
     Fetches all items (known as "cards") from Trello.
+
     Returns:
         list: The list of saved items.
     """
@@ -81,7 +87,7 @@ def get_items():
     items = []
     for card_list in lists:
         for card in card_list['cards']:
-            items.append(Item.from_trello_card(card, card_list))
+            items.append(Item.fromTrelloCard(card, card_list))
 
     return items
 
@@ -89,8 +95,10 @@ def get_items():
 def get_item(id):
     """
     Fetches the item ("card") with the specified ID.
+
     Args:
         id (str): The ID of the item.
+
     Returns:
         item: The item, or None if no items match the specified ID.
     """
@@ -101,8 +109,10 @@ def get_item(id):
 def add_item(name):
     """
     Adds a new item with the specified name as a Trello card.
+
     Args:
         name (str): The name of the item.
+
     Returns:
         item: The saved item.
     """
@@ -114,49 +124,55 @@ def add_item(name):
     response = requests.post(url, params = params)
     card = response.json()
 
-    return Item.from_trello_card(card, todo_list)
+    return Item.fromTrelloCard(card, todo_list)
 
 
 def start_item(id):
     """
     Moves the item with the specified ID to the "Doing" list in Trello.
+
     Args:
         id (str): The ID of the item.
+
     Returns:
         item: The saved item, or None if no items match the specified ID.
     """
     doing_list = get_list('Doing')
     card = move_card_to_list(id, doing_list)
 
-    return Item.from_trello_card(card, doing_list)
+    return Item.fromTrelloCard(card, doing_list)
 
 
 def complete_item(id):
     """
     Moves the item with the specified ID to the "Done" list in Trello.
+
     Args:
         id (str): The ID of the item.
+
     Returns:
         item: The saved item, or None if no items match the specified ID.
     """
     done_list = get_list('Done')
     card = move_card_to_list(id, done_list)
 
-    return Item.from_trello_card(card, done_list)
+    return Item.fromTrelloCard(card, done_list)
 
 
 def uncomplete_item(id):
     """
     Moves the item with the specified ID to the "To-Do" list in Trello.
+
     Args:
         id (str): The ID of the item.
+
     Returns:
         item: The saved item, or None if no items match the specified ID.
     """
     todo_list = get_list('To Do')
     card = move_card_to_list(id, todo_list)
 
-    return Item.from_trello_card(card, todo_list)
+    return Item.fromTrelloCard(card, todo_list)
 
 
 def move_card_to_list(card_id, list):
