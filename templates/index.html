@@ -10,7 +10,7 @@
 <div class="row">
   <div class="col-md-12">
     <h2>Items</h2>
-    <form action="/update" method="POST">
+    <form action="{{ url_for('add_item') }}" method="POST">
       <div class="form-group">
         <table class="table">
           <thead class="thead-dark">
@@ -25,10 +25,12 @@
                 <td>{{ item.title }}</td>
                 <td>{{ item.status }}</td>
                 <td>
-                  {% if item.status != 'Complete' %}
-                    <input type="checkbox" id="{{ item.id }}" name="{{ item.id }}">
-                  {% endif %}
+                  <form action="/complete_item" method="POST">
+                    <input type="text" id="complete-item-{{item.id}}" name="id" value="{{item.id}}" hidden>
+                    <input type="submit" value="Complete Item">
+                  </form>
                 </td>
+                 </td>
                 <td>
                   <a href="/remove/{{ item.id }}">
                    <button class="btn btn-dark" type="submit">Delete</button>

@@ -7,8 +7,8 @@ from flask import current_app as app
 def get_auth_params():
     return { 'key': os.environ['TRELLO_API_KEY'], 'token': os.environ['TRELLO_API_TOKEN'] }
 
-def build_url(endpoint):
-    return os.environ['TRELLO_BASE_URL'] + endpoint
+#def build_url(endpoint):
+#    return os.environ['TRELLO_BASE_URL'] + endpoint
 
 def build_params(params = {}):
     full_params = get_auth_params()
