@@ -14,10 +14,15 @@ __pycache__/
 
 ###VSCODE STUFF###
 .vscode/
+<<<<<<< HEAD
 Workshop-4.code-workspace
 
 ####VAGRANT#####
 .vagrant
+=======
+Exercise-1.code-workspace
+module-2.code-workspace
+>>>>>>> exercise-3
 
 
 # C extensions
