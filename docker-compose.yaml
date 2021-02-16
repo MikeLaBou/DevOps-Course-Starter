@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  web:
+    build: .
+    ports:
+      - "5001:5000"
+  todo_app:
+    container_name: todo_app
+    image: todo-app:dev
+    env_file:
+      - .env
+    volumes:
+    - type: bind
+      source: .
+      target: /todo_app
+      read_only: true
