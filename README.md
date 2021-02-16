@@ -64,4 +64,6 @@ To make code file available beween images use the --mount option to share the pr
 
 docker run --env-file ./.env -p 5100:80 --mount type=bind,source="$(pwd)"/ todo_app,target=/app/todo_app todo-app:dev
 
+If using docker-compose , use docker-compose build to build the project 
+
 
