@@ -36,7 +36,7 @@ SHELL
     trigger.run_remote = {privileged: false, inline: "
       cd /vagrant
       poetry install
-      poetry run flask run --host=0.0.0.0
+      nohup poetry run flask run --host=0.0.0.0 > logs.txt 2>&1 &
     "}
 end
 end
