@@ -1,8 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "hashicorp/bionic64"
   config.vm.provision "shell", privileged: false, inline: <<-SHELL 
-  auto_correct: true
-  
+    
   sudo apt-get update
   sudo apt-get install build-essential
   
