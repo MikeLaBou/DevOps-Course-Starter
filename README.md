@@ -31,4 +31,15 @@ You should see output similar to the following:
  * Debugger PIN: 226-556-590
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
-# Dev-Ops-Course-Starter-Module-04
+
+
+# Vagrant
+On a mac download ind install the official version https://www.vagrantup.com 
+
+Make sure proxy's are unset or disabled
+
+run vagrant up from your cloned directory 
+
+access the todo app from http://0.0.0.0:5000/ 
+
+
