@@ -43,3 +43,25 @@ run vagrant up from your cloned directory
 access the todo app from http://0.0.0.0:5000/ 
 
 
+# Docker
+
+Make sure your environment variables are set !!!
+
+Load up you docker file with the following commands
+
+Development 
+docker build --target development --tag todo_app:dev .			
+docker run --env-file .env -p 5001:5000 todo_app:dev	
+
+Access the todo app on http://localhost:5001/
+
+Production 
+docker build --target production -t todo_app:prod .
+docker run --env-file .env -p 6001:6000 todo_app:prod
+Access the todo app on http://localhost:6001/
+
+To make code file available beween images use the --mount option to share the project 
+
+docker run --env-file ./.env -p 5100:80 --mount type=bind,source="$(pwd)"/ todo_app,target=/app/todo_app todo-app:dev
+
+

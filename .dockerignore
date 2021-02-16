@@ -1,0 +1,7 @@
+.env
+.env.template
+.venv
+__pycache__/
+.pytest_cache/
+.vagrant
+.vscode
