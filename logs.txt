@@ -1,41 +1,247 @@
- * Serving Flask app "app"
- * Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: off
+ * Serving Flask app "app" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 270-709-435
+10.0.2.2 - - [04/Mar/2021 12:56:02] "[35m[1mGET / HTTP/1.1[0m" 500 -
 Traceback (most recent call last):
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/bin/flask", line 8, in <module>
-    sys.exit(main())
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/cli.py", line 967, in main
-    cli.main(args=sys.argv[1:], prog_name="python -m flask" if as_module else None)
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/cli.py", line 586, in main
-    return super(FlaskGroup, self).main(*args, **kwargs)
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/click/core.py", line 782, in main
-    rv = self.invoke(ctx)
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
-    return _process_result(sub_ctx.command.invoke(sub_ctx))
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
-    return ctx.invoke(self.callback, **ctx.params)
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/click/core.py", line 610, in invoke
-    return callback(*args, **kwargs)
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/click/decorators.py", line 73, in new_func
-    return ctx.invoke(f, obj, *args, **kwargs)
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/click/core.py", line 610, in invoke
-    return callback(*args, **kwargs)
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/cli.py", line 852, in run_command
-    run_simple(
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/werkzeug/serving.py", line 1052, in run_simple
-    inner()
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/werkzeug/serving.py", line 996, in inner
-    srv = make_server(
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/werkzeug/serving.py", line 847, in make_server
-    return ThreadedWSGIServer(
-  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/werkzeug/serving.py", line 740, in __init__
-    HTTPServer.__init__(self, server_address, handler)
-  File "/home/vagrant/.pyenv/versions/3.8.3/lib/python3.8/socketserver.py", line 452, in __init__
-    self.server_bind()
-  File "/home/vagrant/.pyenv/versions/3.8.3/lib/python3.8/http/server.py", line 138, in server_bind
-    socketserver.TCPServer.server_bind(self)
-  File "/home/vagrant/.pyenv/versions/3.8.3/lib/python3.8/socketserver.py", line 466, in server_bind
-    self.socket.bind(self.server_address)
-OSError: [Errno 98] Address already in use
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/util/connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/vagrant/.pyenv/versions/3.8.3/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 670, in urlopen
+    httplib_response = self._make_request(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connection.py", line 309, in connect
+    conn = self._new_conn()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa579956b20>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 726, in urlopen
+    retries = retries.increment(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.trello.com', port=443): Max retries exceeded with url: /1/boards/5f739bc7ca6c952a8b153115/lists?key=f99e056b694ee5d6b57503d5b518bbd8&token=92fd67b6f0708f1f120e07415e2d0cff82bab5e6b5efff460fe2b76833f183b2&cards=open (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa579956b20>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/vagrant/app.py", line 12, in index
+    items = trello.get_items()
+  File "/vagrant/todo_app/data/trello_items.py", line 86, in get_items
+    lists = get_lists()
+  File "/vagrant/todo_app/data/trello_items.py", line 59, in get_lists
+    response = requests.get(url, params = params)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.trello.com', port=443): Max retries exceeded with url: /1/boards/5f739bc7ca6c952a8b153115/lists?key=f99e056b694ee5d6b57503d5b518bbd8&token=92fd67b6f0708f1f120e07415e2d0cff82bab5e6b5efff460fe2b76833f183b2&cards=open (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa579956b20>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+10.0.2.2 - - [04/Mar/2021 12:56:02] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/util/connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/vagrant/.pyenv/versions/3.8.3/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 670, in urlopen
+    httplib_response = self._make_request(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connection.py", line 309, in connect
+    conn = self._new_conn()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa579972af0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 726, in urlopen
+    retries = retries.increment(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.trello.com', port=443): Max retries exceeded with url: /1/boards/5f739bc7ca6c952a8b153115/lists?key=f99e056b694ee5d6b57503d5b518bbd8&token=92fd67b6f0708f1f120e07415e2d0cff82bab5e6b5efff460fe2b76833f183b2&cards=open (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa579972af0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/vagrant/app.py", line 12, in index
+    items = trello.get_items()
+  File "/vagrant/todo_app/data/trello_items.py", line 86, in get_items
+    lists = get_lists()
+  File "/vagrant/todo_app/data/trello_items.py", line 59, in get_lists
+    response = requests.get(url, params = params)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.trello.com', port=443): Max retries exceeded with url: /1/boards/5f739bc7ca6c952a8b153115/lists?key=f99e056b694ee5d6b57503d5b518bbd8&token=92fd67b6f0708f1f120e07415e2d0cff82bab5e6b5efff460fe2b76833f183b2&cards=open (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa579972af0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+10.0.2.2 - - [04/Mar/2021 12:56:02] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+10.0.2.2 - - [04/Mar/2021 12:56:02] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+10.0.2.2 - - [04/Mar/2021 12:56:02] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+10.0.2.2 - - [04/Mar/2021 12:56:03] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+10.0.2.2 - - [04/Mar/2021 12:56:03] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+10.0.2.2 - - [04/Mar/2021 12:56:03] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+10.0.2.2 - - [04/Mar/2021 15:11:55] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/util/connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/vagrant/.pyenv/versions/3.8.3/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 670, in urlopen
+    httplib_response = self._make_request(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connection.py", line 309, in connect
+    conn = self._new_conn()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa5785a6d30>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/connectionpool.py", line 726, in urlopen
+    retries = retries.increment(
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.trello.com', port=443): Max retries exceeded with url: /1/boards/5f739bc7ca6c952a8b153115/lists?key=f99e056b694ee5d6b57503d5b518bbd8&token=92fd67b6f0708f1f120e07415e2d0cff82bab5e6b5efff460fe2b76833f183b2&cards=open (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa5785a6d30>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/vagrant/app.py", line 12, in index
+    items = trello.get_items()
+  File "/vagrant/todo_app/data/trello_items.py", line 86, in get_items
+    lists = get_lists()
+  File "/vagrant/todo_app/data/trello_items.py", line 59, in get_lists
+    response = requests.get(url, params = params)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/vagrant/.cache/pypoetry/virtualenvs/todo-app-vs8V2ZPt-py3.8/lib/python3.8/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.trello.com', port=443): Max retries exceeded with url: /1/boards/5f739bc7ca6c952a8b153115/lists?key=f99e056b694ee5d6b57503d5b518bbd8&token=92fd67b6f0708f1f120e07415e2d0cff82bab5e6b5efff460fe2b76833f183b2&cards=open (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa5785a6d30>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+10.0.2.2 - - [04/Mar/2021 15:11:56] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+10.0.2.2 - - [04/Mar/2021 15:11:56] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+10.0.2.2 - - [04/Mar/2021 15:11:56] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+10.0.2.2 - - [04/Mar/2021 15:11:56] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+10.0.2.2 - - [04/Mar/2021 15:11:56] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+10.0.2.2 - - [04/Mar/2021 15:11:56] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
