@@ -177,7 +177,10 @@ def uncomplete_item(id):
 
 
 def move_card_to_list(card_id, list):
-    params = build_params({ 'idList': list['id'] })
+    return move_card_to_list_by_id(card_id, list['id'])
+
+def move_card_to_list_by_id(card_id, list_id):
+    params = build_params({ 'idList': list_id })
     url = build_url('/cards/%s' % card_id)
 
     response = requests.put(url, params = params)

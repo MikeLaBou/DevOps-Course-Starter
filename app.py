@@ -10,31 +10,34 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     items = trello.get_items()
-    return render_template('index.html', items = items)
+    statuses = trello.get_lists()
+    return render_template('index.html', items = items, statuses = statuses)
 
 
-@app.route('/items/new', methods=['POST'])
+@app.route('/create', methods=['POST'])
 def add_item():
-    name = request.form['name']
+    name = request.form['title']
+    description = request.form['desc']
+    due_date = request.form['due']
     trello.add_item(name)
     return redirect(url_for('index'))
 
+@app.route('/update', methods=['POST'])
+def update_item_status():
+    status_id = request.form['status']
+    item_id = request.form['id']
+    trello.move_card_to_list_by_id(item_id, status_id)
+    return redirect(url_for('index'))
 
-@app.route('/items/<id>/start')
-def start_item(id):
-    trello.start_item(id)
-    return redirect(url_for('index')) 
 
-
-@app.route('/items/<id>/complete')
+@app.route('/complete/<id>')
 def complete_item(id):
     trello.complete_item(id)
     return redirect(url_for('index'))
 
-
-@app.route('/items/<id>/uncomplete')
-def uncomplete_item(id):
-    trello.uncomplete_item(id)
+@app.route('/remove/<id>')
+def remove_item(id):
+    # delete item
     return redirect(url_for('index')) 
 
 
