@@ -32,9 +32,12 @@ You should see output similar to the following:
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
 
+#################################################
 Testing
 Unit testing
 To run unit tests use the command:
 
 $ pytest .\tests\
 Integration testing to follow
+#################################################
+
