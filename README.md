@@ -5,7 +5,7 @@
 The project uses a virtual environment to isolate package dependencies. To create the virtual environment and install required packages, run the following from a bash shell terminal:
 
 ### On macOS and Linux
-### Make sure you unset the proxy ###
+### From your Office make sure you unset the proxy ###
 
 ```bash
 $ source setup.sh
@@ -32,6 +32,7 @@ You should see output similar to the following:
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
 
+<<<<<<< HEAD
 
 # Vagrant
 On a mac download ind install the official version https://www.vagrantup.com 
@@ -42,4 +43,14 @@ run vagrant up from your cloned directory
 
 access the todo app from http://0.0.0.0:5000/ 
 
+=======
+#################################################
+Testing
+Unit testing
+To run unit tests use the command:
+
+$ pytest .\tests\
+Integration testing to follow
+#################################################
+>>>>>>> exercise-3
 
