@@ -3,7 +3,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", privileged: true, inline: <<-SHELL 
     
   sudo apt-get update
-  sudo apt-get install build-essential
   
   # TODO: Install pyenv prerequisites
   sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
