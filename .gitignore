@@ -127,3 +127,4 @@ env/
 
 ### Configuration files ###
 .env
+logs.txt
